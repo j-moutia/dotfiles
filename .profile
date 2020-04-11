@@ -3,7 +3,7 @@
 ## .profile file - runs on login
 
 ## Path
-export PATH="$(du $HOME/.scripts/ | cut -f2 | tr '\n' ':' )$PATH"
+export PATH="$(du $HOME/.scripts | cut -f2 | tr '\n' ':' )$PATH"
 
 ## Default programs
 export EDITOR="vim"
