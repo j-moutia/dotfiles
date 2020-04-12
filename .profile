@@ -10,12 +10,12 @@ export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="brave-nightly"
 export READER="zathura"
-#export FILE="lf"
+export FILE="lf"
 
 # Other paths
 export ZDOTDIR="$HOME/.config/zsh"	# zsh .zshrc file
 
 ## Start an X server on login
-[ "$(tty)" = "/dev/tty1" ] && exec startx
+[ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg && exec startx
 
 ### END OF FILE

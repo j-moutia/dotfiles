@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# setbg - sets the background to the given image.
+# An image must be supplied for this to work.
+
+[ -f "$1" ] && cp "$1" ~/.config/wall.png && notify-send "Wallpaper changed."
+
+xwallpaper --zoom ~/.config/wall.png
+
+### END OF FILE

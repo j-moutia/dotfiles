@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# startdwm - Starts dwm in a loop, allowing for restarting by
+# quitting. To end the X session entirely run "killall xinit".
+
+while true; do
+	# Log stderror to a log file
+	dwm 2> ~/.log/dwm.log
+
+	# No error logging
+	# dwm > /dev/null 2>&1
+done
+
+### END OF FILE

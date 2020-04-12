@@ -39,7 +39,16 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
+# Start dunst
+dunst &
+
+# Set the wallpaper
+setbg &
+
+# Start slstatus
+slstatus &
+
 # Start dwm in a loop to allow for restarting (MOD + F2)
-exec dwm
+exec startdwm
 
 ### END OF FILE
