@@ -1,0 +1,13 @@
+[Unit]
+Description=Redshift Daemon
+After=graphical.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/redshift -l -31.95:115.86 -t 6250:4500 -m randr
+Environment=DISPLAY=:0
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=graphical.target

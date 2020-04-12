@@ -1,6 +1,6 @@
 #!/bin/sh
 
-userresources=$HOME/.Xresources
+userresources=$HOME/.config/Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
@@ -39,6 +39,7 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-# start dwm
-
+# Start dwm in a loop to allow for restarting (MOD + F2)
 exec dwm
+
+### END OF FILE
