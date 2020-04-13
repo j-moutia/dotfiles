@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# xprofile - This file will run upon login to a graphical
+# session via a DM. This file will also be sourced via
+# startx/xinit.
+
+# This file's true location is in ~/.config/xprofile and a
+# link can exist to it at ~/.xprofile. If a DM is not used,
+# the link can be removed to have a cleaner home directory.
+
+setbg &			# Set the background
+
+xcompmgr -c &		# xcompmgr for transparency
+
+dunst &			# dunst for notifications
+
+xset r rate 300 50 &	# Speed xrate up
+
+### END OF FILE
