@@ -22,14 +22,8 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-# Start dunst
-dunst &
-
-# Set the wallpaper
-setbg &
-
-# Start slstatus
-slstatus &
+# Source ~/.config/xprofile
+[ -f "$HOME/.config/xprofile" ] && . "$HOME/.config/xprofile"
 
 # Start dwm in a loop to allow for restarting (MOD + F2)
 exec startdwm
