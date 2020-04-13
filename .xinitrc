@@ -26,6 +26,6 @@ fi
 [ -f "$HOME/.config/xprofile" ] && . "$HOME/.config/xprofile"
 
 # Start dwm in a loop to allow for restarting (MOD + F2)
-exec startdwm
+exec su_startdwm
 
 ### END OF FILE

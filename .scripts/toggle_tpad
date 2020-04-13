@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# toggle_tpad - Turns the touchpad on or off depending on
+# its state. This will be activated by the user using a
+# key command set in dwm's config.h file (MOD + F8).
+
+# Get the ID of the touchpad in question.
+ID=$(xinput list | grep -Eio '(touchpad|glidepoint)\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}')
+
+# Get the current state of the touchpad (enabled/disabled).
+STATE=$(xinput list-props $ID | grep 'Device Enabled' | awk '{ print $4 }')
+
+# Switch the state of the touchpad and notify the user of
+# its new state.
+case $STATE in
+	"0") xinput enable $ID && notify-send -a 'Touchpad' 'Touchpad enabled.';;
+	"1") xinput disable $ID && notify-send -a 'Touchpad' 'Touchpad disabled.';;
+	*)   notify-send -a 'Touchpad' 'Touchpad not found.';;
+esac
+
+### END OF FILE

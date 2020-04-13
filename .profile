@@ -15,9 +15,6 @@ export FILE="lf"
 # Other paths
 export ZDOTDIR="$HOME/.config/zsh"	# zsh .zshrc file
 
-## Disable Caps Lock key
-xmodmap -e "remove lock = Caps_Lock"
-
 ## Start an X server on login
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg && exec startx
 

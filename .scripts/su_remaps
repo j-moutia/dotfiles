@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# su_remaps - This script will run on startup.
+# Primarily it remaps the CapsLock key so it does
+# nothing.
+
+# Map CapsLock key to super...
+setxkbmap -option caps:super
+
+# ...but when it is pressed once, treat is as Escape
+killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
+
+# Finally, map the menu button to Right Super as well.
+xmodmap -e 'keycode 135 = Super_R'
+
+### END OF FILE
