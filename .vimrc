@@ -13,6 +13,14 @@ set smarttab					" Turn on smart tabbing
 set shiftwidth=4				" 1 tab = 4 spaces
 set tabstop=4
 
+"" Lightline settings
+set laststatus=2
+
+"" Lightline colorscheme
+let g:lightline = {
+    \ 'colorscheme': 'darcula',
+    \ }
+
 "" Mouse scrolling
 set mouse=nicr
 
