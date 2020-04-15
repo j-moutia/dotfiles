@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# dm_umount - The reverse of dm_mount, this script spawns a dmenu prompt
+# that allows the user to select which device to unmount and unmounts it.
+# Drives mounted at "/", "/boot" and "/home" will not be options to unmount.
+
+unmountusb() { \
+    [ -z "$DRIVES" ] && exit
+    CHOSEN=$(echo "$DRIVES" | dmenu -fn "Terminus-8" -i -p \
+        "Unmount which drive?" | awk '{print $1}')
+    [ -z "$CHOSEN" ] && exit
+    sudo -A umount "$CHOSEN" && notify-send "$CHOSEN unmounted."
+}
+
+unmountand() { \
+    CHOSEN=$(awk '/simple-mtpfs/ {print $2}' /etc/mtab | dmenu -fn "Terminus-8" \
+        -i -p "Unmount which device?")
+    [ -z $CHOSEN ] && exit
+    sudo -A umount -l "$CHOSEN" && notify-send "$CHOSEN unmounted."
+}
+
+asktype() { \
+    case "$(printf "USB\\Android" | dmenu -fn "Terminus-8" -i -p \
+        "Unmount a USB or Android device?" )" in
+        USB)        unmountusb;;
+        Android)    unmountand;;
+    esac
+}
+
+DRIVES=$(lsblk -nrpo "name,type,size,mountpoint" | awk '$2=="part"&&$4!~/\/boot|\/home$|SWAP/&&length($4)>1{printf "%s (%s)\n",$4,$3}')
+
+if ! grep simple-mtpfs /etc/mtab; then
+    [ -z "$DRIVES" ] && echo "No drives to unmount." && exit
+    echo "Unmountable USB drive detected."
+    unmountusb
+else
+    [ -z "$DRIVES" ] && echo "Unmountable Android device detected." && unmountand
+    echo "Unmountable USB and Android device(s) detected."
+    asktype
+fi
+
+### END OF FILE

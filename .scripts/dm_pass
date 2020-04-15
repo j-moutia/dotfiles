@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# dm_pass - Allows for dmenu to be used as a password input box to
+# run "sudo" commands within dmenu. This will be especially helpful
+# for mounting/unmounting devices.
+
+dmenu -p "$1" -fn "Terminus-8" -nf "#204a87" -nb "#204a87" -sf black -sb "#babdb6" <&- && echo
+
+### END OF FILE

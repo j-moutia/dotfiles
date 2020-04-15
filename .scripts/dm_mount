@@ -1,0 +1,77 @@
+#!/bin/sh
+
+# Shows a dmenu prompt to mount unmounted drives or Android devices.
+# If they're in /etc/fstab, they will mount automatically. Otherwise
+# there will be a secondary prompt to give a mountpoint that already
+# exists. If a new directory is entered manually, the user will be
+# prompted to create it.
+
+pgrep -x dmenu && exit
+
+# Get a mount point for our device.
+getmount() { \
+    [ -z "$CHOSEN" ] && exit 1
+    MP="$(find $1 2>/dev/null | dmenu -fn "Terminus-8" -i -p "Type in mount point.")"
+    [ "$MP" = "" ] && exit 1
+
+    if [ ! -d "$MP" ]; then
+        $(prompt "$MP does not exist. Create it?" \
+            "mkdir -p "$MP" || sudo -A mkdir -p "$MP"")
+    fi
+}
+
+# Mount a standard USB device.
+mountusb() { \
+    CHOSEN="$(echo "$USBDEV" | dmenu -fn "Terminus-8" -i -p "Mount which drive?" \
+                | awk '{print $1}')"
+    sudo -A mount "$CHOSEN" 2>/dev/null && notify-send "$CHOSEN mounted." && exit 0
+    getmount "/mnt /media /mount /home -maxdepth 5 -type d"
+    PARTTYPE="$(lsblk -no "ftype" "$CHOSEN")"
+    case "$PARTTYPE" in
+        "vfat") sudo -A mount -t vfat "$CHOSEN" "$MP" -o rw,umask=000;;
+        *)      sudo -A mount "$CHOSEN" "$MP" -o rw,umask=000; user="$(whoami)"; ug="$(groups | awk '{print $1}')"; sudo -A chown "$user":"$ug" "$MP";;
+    esac
+    notify-send "$CHOSEN mounted to $MP."
+}
+
+# Mount an Android device.
+mountand() { \
+    CHOSEN=$(echo "$ANDDEV" | dmenu -fn "Terminus-8" -i -p "Which Android device?"\
+| cut -d : -f 1)
+    getmount "$HOME -maxdepth 3 -type d"
+    simple-mtpfs --device "$CHOSEN" "$MP" && \
+    notfiy-send "$CHOSEN mounted to $MP."
+}
+
+# Ask which type of device to mount
+asktype() { \
+    DEVTYPE="$(printf "USB\\nAndroid" | dmenu -fn "Terminus-8 "-i -p \
+                "Mount a USB or Android device?")"
+
+    case $DEVTYPE in
+        USB)        mountusb ;;
+        Android)    mountand ;;
+    esac
+}
+
+# Get all USB and/or Android devices.
+ANDDEV=$(simple-mtpfs -l 2>/dev/null)
+USBDEV="$(lsblk -rpo "name,type,size,mountpoint" | \
+            awk '$2=="part"&&$4==""{printf "%s (%s)\n",$1,$3}')"
+
+# Where the actual work is done.
+if [ -z "$USBDEV" ]; then
+    [ -z "$ANDDEV" ] && echo "No USB or Android device(s) detected." && exit
+    echo "Android device(s) detected"
+    mountand
+else
+    if [ -z "$ANDDEV" ]; then
+        echo "USB drive(s) detected."
+        mountusb
+    else
+        echo "Mountable USB and Android device(s) detected."
+        asktype
+    fi
+fi
+
+### END OF FILE

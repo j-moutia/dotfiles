@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# weather - updates the current weather information.
+# For use with slstatus hopefully.
+
+printf "%b\n" "$(cat $HOME/.cache/weather)"
+
+### END OF FILE

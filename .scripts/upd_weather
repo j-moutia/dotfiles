@@ -1,0 +1,11 @@
+#!/bin/sh
+
+CACHE=/home/jesse/.cache/weather
+
+update_data() {
+    curl -s --retry 5 --max-time 5 --retry-delay 4 --retry-max-time 40 "wttr.in/Perth?format=%C+%t" > $CACHE
+}
+
+update_data
+
+### END OF FILE
