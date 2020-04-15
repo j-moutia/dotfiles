@@ -1,3 +1,6 @@
+# Allow aliases to be used as sudo
+alias sudo="sudo "
+
 # Dotfiles repository command
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
@@ -5,3 +8,4 @@ alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 alias ls="ls --color"
 alias nf="clear && neofetch"
 alias dmenu_run="dmenu_run -fn 'Terminus-8'"
+alias mtusb="mount -o gid=users,fmask=113,dmask=002"

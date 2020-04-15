@@ -1,0 +1,21 @@
+### ncmpcpp config - This is the config file for ncmpcpp.
+### Key bindings can be found in ~/.config/ncmpcpp/bindings
+
+## Connection settings
+mpd_host                    = "localhost"
+mpd_port                    = "6600"
+mpd_connection_timeout      = "5"
+
+## Music directory - needed for tag editor to work
+mpd_music_dir               = "~/music"
+
+## Visualizer settings - needed for visualizations
+system_encoding             = "utf8"
+visualizer_fifo_path        = "/tmp/mpd.fifo"
+visualizer_output_name      = "mpd_fifo"
+visualizer_sync_interval    = "20"
+visualizer_in_stereo        = "yes"
+visualizer_type             = "spectrum"
+visualizer_look             = "o#"
+
+### END OF FILE

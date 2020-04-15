@@ -6,7 +6,7 @@ filetype off					" required
 
 "" Text editing settings
 syntax enable					" Syntax highlighting
-set number relativenumber		" Enable relative line number
+set number relativenumber       " Enable relative line number
 set expandtab					" Use spaces instead of tabs
 set smarttab					" Turn on smart tabbing
 
@@ -25,6 +25,6 @@ let g:lightline = {
 set mouse=nicr
 
 "" Splits and tabbed files
-set splitbelow splitright		" splitbelow or splitright
+set splitbelow splitright       " splitbelow or splitright
 
 """ END OF FILE
