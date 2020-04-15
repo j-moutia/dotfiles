@@ -27,4 +27,11 @@ set mouse=nicr
 "" Splits and tabbed files
 set splitbelow splitright       " splitbelow or splitright
 
+"" Key bindings
+" Copy to clipboard with Ctrl+y
+vnoremap <C-y> "*y :let @+=@*<CR>
+
+" Paste from the keyboard with Ctrl+p
+map <C-p> "+P
+
 """ END OF FILE

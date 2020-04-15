@@ -13,9 +13,9 @@ mpd_music_dir               = "~/music"
 system_encoding             = "utf8"
 visualizer_fifo_path        = "/tmp/mpd.fifo"
 visualizer_output_name      = "mpd_fifo"
-visualizer_sync_interval    = "20"
+visualizer_sync_interval    = "25"
 visualizer_in_stereo        = "yes"
 visualizer_type             = "spectrum"
-visualizer_look             = "o#"
+visualizer_look             = "•▊"
 
 ### END OF FILE
