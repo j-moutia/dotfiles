@@ -1,4 +1,4 @@
-### ncmpcpp config - This is the config file for ncmpcpp.
+### ncmpcpp config - This is my config file for ncmpcpp.
 ### Key bindings can be found in ~/.config/ncmpcpp/bindings
 
 ## Connection settings
@@ -17,5 +17,25 @@ visualizer_sync_interval    = "25"
 visualizer_in_stereo        = "yes"
 visualizer_type             = "spectrum"
 visualizer_look             = "•▊"
+
+## Display settings
+startup_screen              = "media_library"
+display_volume_level        = "no"
+playlist_display_mode       = "columns"
+browser_display_mode        = "columns"
+progressbar_look            = "█"
+
+## Library formats
+media_library_primary_tag   = "album_artist"
+ignore_leading_the          = "yes"
+song_list_format            = "{$4%a - }{%t}|{$8%f$9}$R{$3(%l)$9}"
+song_status_format          = $b{{$8"%t"}} $3by {$4%a{ $3in $7%b{ (%y)}} $3}|{$8%f}
+song_library_format         = "{%n - }{%t}|{%f}"
+alternative_header_first_line_format    = "$b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b"
+alternative_header_second_line_format   = "{{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}"
+
+## Editor settings
+external_editor             = "vim"
+use_console_editor          = "yes"
 
 ### END OF FILE

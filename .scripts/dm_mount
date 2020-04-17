@@ -24,12 +24,14 @@ getmount() { \
 mountusb() { \
     CHOSEN="$(echo "$USBDEV" | dmenu -fn "Terminus-8" -i -p "Mount which drive?" \
                 | awk '{print $1}')"
+    USERID="$(id -u)"
     sudo -A mount "$CHOSEN" 2>/dev/null && notify-send "$CHOSEN mounted." && exit 0
     getmount "/mnt /media /mount /home -maxdepth 5 -type d"
     PARTTYPE="$(lsblk -no "ftype" "$CHOSEN")"
     case "$PARTTYPE" in
         "vfat") sudo -A mount -t vfat "$CHOSEN" "$MP" -o rw,umask=000;;
-        *)      sudo -A mount "$CHOSEN" "$MP" -o rw,umask=000; user="$(whoami)"; ug="$(groups | awk '{print $1}')"; sudo -A chown "$user":"$ug" "$MP";;
+        *)      sudo -A mount -o uid=$USERID,gid=users,fmask=113,dmask=002 "$CHOSEN" "$MP"; \
+                    user="$(whoami)"; ug="$(groups | awk '{print $1}')"; sudo -A chown "$user":"$ug" "$MP";;
     esac
     notify-send "$CHOSEN mounted to $MP."
 }

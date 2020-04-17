@@ -4,7 +4,7 @@
 set nocompatible				" be iMproved, required
 filetype off					" required
 
-"" Text editing settings
+"" Basic settings
 syntax enable					" Syntax highlighting
 set number relativenumber       " Enable relative line number
 set expandtab					" Use spaces instead of tabs
@@ -22,7 +22,7 @@ let g:lightline = {
     \ }
 
 "" Mouse scrolling
-set mouse=nicr
+set mouse=a
 
 "" Splits and tabbed files
 set splitbelow splitright       " splitbelow or splitright
@@ -33,5 +33,11 @@ vnoremap <C-y> "*y :let @+=@*<CR>
 
 " Paste from the keyboard with Ctrl+p
 map <C-p> "+P
+
+" Split navigation with Ctrl-h/j/k/l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 """ END OF FILE
