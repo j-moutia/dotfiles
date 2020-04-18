@@ -13,6 +13,8 @@ set smarttab					" Turn on smart tabbing
 set shiftwidth=4				" 1 tab = 4 spaces
 set tabstop=4
 
+"set termguicolors               " Enable 256 color mode.
+
 "" Lightline settings
 set laststatus=2
 
@@ -20,6 +22,10 @@ set laststatus=2
 let g:lightline = {
     \ 'colorscheme': 'darcula',
     \ }
+
+"" Current line highlighting.
+" set cursorline
+" highlight CursorLine ctermbg=LightGray cterm=bold guibg=#444444
 
 "" Mouse scrolling
 set mouse=a
