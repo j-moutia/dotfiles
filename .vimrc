@@ -5,7 +5,7 @@ set nocompatible				" be iMproved, required
 filetype off					" required
 
 "" Basic settings
-syntax enable					" Syntax highlighting
+syntax on					    " Syntax highlighting
 set number relativenumber       " Enable relative line number
 set expandtab					" Use spaces instead of tabs
 set smarttab					" Turn on smart tabbing
@@ -13,7 +13,9 @@ set smarttab					" Turn on smart tabbing
 set shiftwidth=4				" 1 tab = 4 spaces
 set tabstop=4
 
+"" Colors and color scheme
 "set termguicolors               " Enable 256 color mode.
+"colorscheme spacegray           " Use spacegray color scheme
 
 "" Lightline settings
 set laststatus=2

@@ -21,3 +21,5 @@ export SUDO_ASKPASS="$HOME/.scripts/dm_pass"    # Use dmenu as password input di
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg && exec startx
 
 ### END OF FILE
+
+export PATH="$HOME/.cargo/bin:$PATH"

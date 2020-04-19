@@ -14,6 +14,8 @@ su_setbg &		# Set the background
 
 xcompmgr &		# xcompmgr for transparency
 
+lxsession &     # Start an X session.
+
 dunst &			# dunst for notifications
 
 unclutter &		# Hide mouse cursor when it is inactive.

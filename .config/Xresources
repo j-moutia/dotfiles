@@ -17,23 +17,83 @@
 /* white	7	15    */
 
 !! gruvbox:
-/* *.color0: #1d2021   */
-/* *.color1: #cc241d   */
-/* *.color2: #98971a   */
-/* *.color3: #d79921   */
-/* *.color4: #458588   */
-/* *.color5: #b16286   */
-/* *.color6: #689d6a   */
-/* *.color7: #a89984   */
-/* *.color8: #928374   */
-/* *.color9: #fb4934   */
-/* *.color10: #b8bb26  */
-/* *.color11: #fabd2f  */
-/* *.color12: #83a598  */
-/* *.color13: #d3869b  */
-/* *.color14: #8ec07c  */
-/* *.color15: #ebdbb2  */
-/* *.color256: #1d2021 */
-/* *.color257: #ebdbb2 */
+!!*.color0:       #1d2021
+!!*.color1:       #cc241d
+!!*.color2:       #98971a
+!!*.color3:       #d79921
+!!*.color4:       #458588
+!!*.color5:       #b16286
+!!*.color6:       #689d6a
+!!*.color7:       #a89984
+!!*.color8:       #928374
+!!*.color9:       #fb4934
+!!*.color10:      #b8bb26
+!!*.color11:      #fabd2f
+!!*.color12:      #83a598
+!!*.color13:      #d3869b
+!!*.color14:      #8ec07c
+!!*.color15:      #ebdbb2
+!!*.bg:           #1d2021
+!!*.fg:           #ebdbb2
+
+!! spacegray:
+*.color0:       #000000
+*.color1:       #b04b57
+*.color2:       #87b379
+*.color3:       #e5c179
+*.color4:       #7d8fa4
+*.color5:       #a47996
+*.color6:       #85a7a5
+*.color7:       #b3b8c3
+*.color8:       #353535
+*.color9:       #b04b57
+*.color10:      #87b379
+*.color11:      #e5c179
+*.color12:      #7d8fa4
+*.color13:      #a47996
+*.color14:      #85a7a5
+*.color15:      #ffffff
+*.bg:           #20242d
+*.fg:           #b3b8c3
+
+!! material dark:
+!!*.color0:       #212121
+!!*.color1:       #b7141f
+!!*.color2:       #457b24
+!!*.color3:       #f6981e
+!!*.color4:       #134eb2
+!!*.color5:       #560088
+!!*.color6:       #0e717c
+!!*.color7:       #efefef
+!!*.color8:       #424242
+!!*.color9:       #e83b3f
+!!*.color10:      #7aba3a
+!!*.color11:      #ffea2e
+!!*.color12:      #54a4f3
+!!*.color13:      #aa4dbc
+!!*.color14:      #26bbd1
+!!*.color15:      #d9d9d9
+!!*.bg:           #232322
+!!*.fg:           #e5e5e5
+
+!! dracula:
+!!*.color0:       #21222c
+!!*.color1:       #ff5555
+!!*.color2:       #50fa7b
+!!*.color3:       #f1fa8c
+!!*.color4:       #bd93f9
+!!*.color5:       #ff79c6
+!!*.color6:       #8be9fd
+!!*.color7:       #f8f8f2
+!!*.color8:       #6272a4
+!!*.color9:       #ff6e6e
+!!*.color10:      #69ff94
+!!*.color11:      #ffffa5
+!!*.color12:      #d6acff
+!!*.color13:      #ff92df
+!!*.color14:      #a4ffff
+!!*.color15:      #ffffff
+!!*.bg:           #1e1f29
+!!*.fg:           #f8f8f2
 
 !!! END OF FILE
