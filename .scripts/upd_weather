@@ -6,6 +6,6 @@ update_data() {
     curl -s --retry 5 --max-time 5 --retry-delay 4 --retry-max-time 40 "wttr.in/Perth?format=%C+%t" > $CACHE
 }
 
-update_data
+update_data || exit 1
 
 ### END OF FILE
