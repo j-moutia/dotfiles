@@ -96,4 +96,44 @@
 !!*.bg:           #1e1f29
 !!*.fg:           #f8f8f2
 
+!! brogrammer:
+!!*.color0:       #1f1f1f
+!!*.color1:       #f81118
+!!*.color2:       #2dc55e
+!!*.color3:       #ecba0f
+!!*.color4:       #2a84d2
+!!*.color5:       #4e5ab7
+!!*.color6:       #1081d6
+!!*.color7:       #d6dbe5
+!!*.color8:       #d6dbe5
+!!*.color9:       #de352e
+!!*.color10:      #1dd361
+!!*.color11:      #f3bd09
+!!*.color12:      #1081d6
+!!*.color13:      #5350b9
+!!*.color14:      #0f7ddb
+!!*.color15:      #ffffff
+!!*.bg:           #131313
+!!*.fg:           #d6dbe5
+
+!! synthwave-everything:
+!!*.color0:       #fefefe
+!!*.color1:       #f97e72
+!!*.color2:       #72f1b8
+!!*.color3:       #fede5d
+!!*.color4:       #6d77b3
+!!*.color5:       #c792ea
+!!*.color6:       #f772e0
+!!*.color7:       #fefefe
+!!*.color8:       #fefefe
+!!*.color9:       #f88414
+!!*.color10:      #72f1b8
+!!*.color11:      #fff951
+!!*.color12:      #36f9f6
+!!*.color13:      #e1acff
+!!*.color14:      #f92aad
+!!*.color15:      #fefefe
+!!*.bg:           #2a2139
+!!*.fg:           #f0eff1
+
 !!! END OF FILE
