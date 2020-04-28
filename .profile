@@ -3,7 +3,7 @@
 ## .profile file - runs on login
 
 ## Path
-export PATH="$(du $HOME/.scripts | cut -f2 | tr '\n' ':' )$PATH"
+export PATH="$(du $HOME/.scripts | cut -f2 | tr '\n' ':' )$HOME/.cargo/bin:$PATH"
 
 ## Default programs
 export EDITOR="vim"
@@ -21,5 +21,3 @@ export SUDO_ASKPASS="$HOME/.scripts/dm_pass"    # Use dmenu as password input di
 [ "$(tty)" = "/dev/tty1" ] && ! ps -e | grep -qw Xorg && exec startx
 
 ### END OF FILE
-
-export PATH="$HOME/.cargo/bin:$PATH"
