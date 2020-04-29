@@ -6,7 +6,7 @@
 export PATH="$(du $HOME/.scripts | cut -f2 | tr '\n' ':' )$HOME/.cargo/bin:$PATH"
 
 ## Default programs
-export EDITOR="vim"
+export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="brave-nightly"
 export READER="zathura"
