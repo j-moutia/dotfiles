@@ -13,6 +13,9 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
+"" Use the clipboard for copy/paste
+set clipboard+=unnamedplus
+
 "" Colors and color scheme
 set termguicolors
 colorscheme molokai
