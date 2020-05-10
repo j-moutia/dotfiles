@@ -11,7 +11,7 @@ pgrep -x dmenu && exit
 # Get a mount point for our device.
 getmount() { \
     [ -z "$CHOSEN" ] && exit 1
-    MP="$(find $1 2>/dev/null | dmenu -fn "Terminus-8" -i -p "Type in mount point.")"
+    MP="$(find $1 2>/dev/null | dmenu -fn "Droid Sans Mono-7.5" -i -p "Type in mount point.")"
     [ "$MP" = "" ] && exit 1
 
     if [ ! -d "$MP" ]; then
@@ -22,7 +22,7 @@ getmount() { \
 
 # Mount a standard USB device.
 mountusb() { \
-    CHOSEN="$(echo "$USBDEV" | dmenu -fn "Terminus-8" -i -p "Mount which drive?" \
+    CHOSEN="$(echo "$USBDEV" | dmenu -fn "Droid Sans Mono-7.5" -i -p "Mount which drive?" \
                 | awk '{print $1}')"
     USERID="$(id -u)"
     sudo -A mount "$CHOSEN" 2>/dev/null && notify-send "$CHOSEN mounted." && exit 0
@@ -38,7 +38,7 @@ mountusb() { \
 
 # Mount an Android device.
 mountand() { \
-    CHOSEN=$(echo "$ANDDEV" | dmenu -fn "Terminus-8" -i -p "Which Android device?"\
+    CHOSEN=$(echo "$ANDDEV" | dmenu -fn "Droid Sans Mono-7.5" -i -p "Which Android device?"\
 | cut -d : -f 1)
     getmount "$HOME -maxdepth 3 -type d"
     simple-mtpfs --device "$CHOSEN" "$MP" && \
@@ -47,7 +47,7 @@ mountand() { \
 
 # Ask which type of device to mount
 asktype() { \
-    DEVTYPE="$(printf "USB\\nAndroid" | dmenu -fn "Terminus-8 "-i -p \
+    DEVTYPE="$(printf "USB\\nAndroid" | dmenu -fn "Droid Sans Mono-7.5" -i -p \
                 "Mount a USB or Android device?")"
 
     case $DEVTYPE in

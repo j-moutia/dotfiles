@@ -16,6 +16,9 @@ set tabstop=4
 "" Use the clipboard for copy/paste
 set clipboard+=unnamedplus
 
+"" Guicursor
+set guicursor=a:ver20
+
 "" Colors and color scheme
 set termguicolors
 colorscheme molokai

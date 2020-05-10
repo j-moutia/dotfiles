@@ -5,7 +5,7 @@ alias sudo="sudo "
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 # Some aliases
-alias ls="ls --color"
+alias ls="ls --color --group-directories-first"
 alias nf="clear && neofetch"
 alias dmenu_run="dmenu_run -fn 'Terminus-8'"
 alias nv="nvim"
