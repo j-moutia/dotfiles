@@ -41,6 +41,9 @@ def_key "+"
     volume_up
 
 ## Other operations
+def_key "U"
+    update_database
+
 def_key "y"
     select_item
 

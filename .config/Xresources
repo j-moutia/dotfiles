@@ -4,7 +4,7 @@
 *.alpha: 0.9
 
 !! Set a default font and font size
-*.font: Terminus:size=10
+*.font: Droid Sans Mono:pixelsize=11:antialias=true:autohint=true
 
 /* name		dark	light */
 /* black	0	8     */

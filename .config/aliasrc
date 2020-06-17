@@ -9,3 +9,8 @@ alias ls="ls --color --group-directories-first"
 alias nf="clear && neofetch"
 alias dmenu_run="dmenu_run -fn 'Terminus-8'"
 alias nv="nvim"
+alias update="yay -Syu && upd_pacman"
+
+# Directory aliases
+alias cf="cd $HOME/.config"
+alias sc="cd $HOME/.scripts"
