@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# This script will handle links given to it appropriately
+#   - Images will be opened in sxiv
+#   - Videos or gifs will be opened in mpv
+#   - Music or pdf files will be downloaded
+#   - Everything else will be opened in $BROWSER
+
+# If no URL is given, just open the browser
+[ -z "$1" ] && { "$BROWSER"; exit; }
+
+case "$1" in
+    *mkv|*webm|*mp4|*twitch.tv/videos*|*youtube.com/watch*|*youtube.com/playlist*|*youtu.be*|*hooktube.com*|*bitchute.com*)
+        mpv -quiet "$1" >/dev/null 2>&1 ;;
+    *png|*jpg|*jpe|*jpeg|*gif)
+        curl -sL "$1" > "/tmp/$(echo "$1" | sed "s/.*\///")" && sxiv -a "/tmp/$(echo "$1" | sed "s/.*\///")" >/dev/null 2>&1 & ;;
+    *mp3|*flac|*opus|*mp3?source*)
+        tsp curl -LO "$1" >/dev/null 2>&1 ;;
+    *)
+        if [ -f "$1" ]; then "$TERMINAL" -e "$EDITOR $1"
+        else setsid -f "$BROWSER" "$1" >/dev/null 2>&1;
+        fi ;;
+esac
+
+### END OF FILE
