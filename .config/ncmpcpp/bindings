@@ -33,6 +33,12 @@ def_key "n"
 def_key "N"
     previous_found_item
 
+def_key "G"
+    move_end
+
+def_key "g"
+    move_home
+
 ## Volume
 def_key "_"
     volume_down
