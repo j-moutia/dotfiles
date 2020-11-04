@@ -11,6 +11,8 @@ alias dmenu_run="dmenu_run -fn 'Terminus-8'"
 alias nv="nvim"
 alias update="yay -Syu && upd_pacman"
 alias fcast="curl \"https://wttr.in/Perth\""
+alias cp="cp -v"
+alias mv="mv -v"
 
 # Directory aliases
 alias ccf="cd $HOME/.config"

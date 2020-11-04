@@ -20,14 +20,15 @@ set clipboard+=unnamedplus
 set guicursor=a:ver20
 
 "" Colors and color scheme
+set background=dark
 set termguicolors
-colorscheme molokai
+colorscheme ceudah
 
 "" Lightline status
 set laststatus=2
 
 "" Lightline color scheme
-let g:lightline = { 'colorscheme': 'molokai', }
+let g:lightline = { 'colorscheme': 'material', }
 
 "" Current line highlighting
 set cursorline
