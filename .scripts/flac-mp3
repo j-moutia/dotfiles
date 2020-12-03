@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Get a folder name.
+# This should be the album title ideally.
+F_NAME=$(pwd | sed 's/\//;/g' | awk -F';' '{print $7}')
+
+# Make the new directory
+mkdir -p ~/to_phone/"$F_NAME"
+
+# Convert the files
+# ffmpeg is used to convert the .flac files to V0 .mp3 files
+find -name "*.flac" -exec ffmpeg -i {} -qscale:a 0 ~/to_phone/"$F_NAME"/{}.mp3 \;
+
+### END OF FILE

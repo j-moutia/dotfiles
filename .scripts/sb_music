@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# music - If music is playing, outputs the artist name and song title.
+
+mpc status |
+sed "/^volume:/d" |
+tac |
+sed -e "s/\\[paused\\].*/⏸️ /g;s/\\[playing\\].*/🎵 /g" |
+tr -d '\n'
+
+### END OF FILE

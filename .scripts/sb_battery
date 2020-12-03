@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# battery - outputs the current battery capacity and its status
+
+battery=/sys/class/power_supply/BAT0
+cap=$(cat "$battery"/capacity 2>/dev/null)
+stat=$(sed "s/[Dd]ischarging/🔋/;s/[Nn]ot charging/🛑/;s/[Cc]harging/🔌/;s/[Uu]nknown/♻️/;s/[Ff]ull/⚡/" "$battery"/status)
+
+printf "%s %s%%\n" "$stat" "$cap"
+
+### END OF FILE

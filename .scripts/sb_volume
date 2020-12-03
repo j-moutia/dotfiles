@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Display muted speaker if muted.
+[ "$(pamixer --get-mute)" = "true" ] && printf "🔇\\n" && exit
+
+# Otherwise get the volume and display it with an approprate icon.
+VOL=$(pamixer --get-volume)
+
+if [ "$VOL" -gt "70" ]; then
+    ICON="🔊"
+elif [ "$VOL" -lt "30" ]; then
+    ICON="🔈"
+else
+    ICON="🔉"
+fi
+
+printf "%s %s%%\\n" "$ICON" "$VOL"
+
+### END OF FILE

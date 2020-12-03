@@ -1,0 +1,7 @@
+#!/bin/sh
+
+UPD=$(checkupdates | wc -l)
+
+printf "📦 %s updates\n" "$UPD"
+
+### END OF FILE
