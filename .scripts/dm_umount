@@ -6,21 +6,21 @@
 
 unmountusb() { \
     [ -z "$DRIVES" ] && exit
-    CHOSEN=$(echo "$DRIVES" | dmenu -fn "Droid Sans Mono-7.5" -i -p \
+    CHOSEN=$(echo "$DRIVES" | dmenu -fn "Hack Nerd Font-7.5" -i -p \
         "Unmount which drive?" | awk '{print $1}')
     [ -z "$CHOSEN" ] && exit
     sudo -A umount "$CHOSEN" && notify-send "$CHOSEN unmounted."
 }
 
 unmountand() { \
-    CHOSEN=$(awk '/simple-mtpfs/ {print $2}' /etc/mtab | dmenu -fn "Droid Sans Mono-7.5" \
+    CHOSEN=$(awk '/simple-mtpfs/ {print $2}' /etc/mtab | dmenu -fn "Hack Nerd Font-7.5" \
         -i -p "Unmount which device?")
     [ -z $CHOSEN ] && exit
     sudo -A umount -l "$CHOSEN" && notify-send "$CHOSEN unmounted."
 }
 
 asktype() { \
-    case "$(printf "USB\\Android" | dmenu -fn "Droid Sans Mono-7.5" -i -p \
+    case "$(printf "USB\\Android" | dmenu -fn "Hack Nerd Font-7.5" -i -p \
         "Unmount a USB or Android device?" )" in
         USB)        unmountusb;;
         Android)    unmountand;;

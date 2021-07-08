@@ -3,8 +3,8 @@
 # This is a dmenu binary prompt script.
 # Gives a dmenu prompt labeled with $1 to perform command $2
 # Example:
-#	./prompt "Do you want to shutdown?" "shutdown -h now"
+#	./dm_prompt "Do you want to shutdown?" "shutdown -h now"
 
-[ "$(printf "No\\nYes" | dmenu -i -p "$1" -fn "Droid Sans Mono-7.5" -nb darkred -sb red -sf white -nf gray )" = "Yes" ] && $2
+[ "$(printf "No\\nYes" | dmenu -i -p "$1" -fn "Hack Nerd Font-7.5" -nb darkred -sb red -sf white -nf gray )" = "Yes" ] && $2
 
 ### END OF FILE

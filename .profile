@@ -8,7 +8,7 @@ export PATH="$(du $HOME/.scripts | cut -f2 | tr '\n' ':' )$HOME/.cargo/bin:$PATH
 ## Default programs
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="firefox"
+export BROWSER="librewolf"
 export READER="zathura"
 export FILE="lf"
 

@@ -4,6 +4,6 @@
 # run "sudo" commands within dmenu. This will be especially helpful
 # for mounting/unmounting devices.
 
-dmenu -p "$1" -fn "Droid Sans Mono-7.5" -nf "#204a87" -nb "#204a87" -sf black -sb "#babdb6" <&- && echo
+dmenu -p "$1" -fn "Hack Nerd Font-7.5" -nf "#204a87" -nb "#204a87" -sf black -sb "#babdb6" <&- && echo
 
 ### END OF FILE

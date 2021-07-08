@@ -5,6 +5,6 @@
 
 [ -f "$1" ] && cp "$1" ~/.config/wall.png && notify-send "Wallpaper changed."
 
-xwallpaper --zoom ~/.config/wall.png
+xwallpaper --zoom ~/.config/wall.png || xsetroot -solid black
 
 ### END OF FILE

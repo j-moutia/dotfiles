@@ -1,5 +1,5 @@
-# Allow aliases to be used as sudo
-alias sudo="sudo "
+# Alias sudo to run doas instead and allow aliases to be used as root
+alias sudo="doas "
 
 # Dotfiles repository command
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
@@ -9,13 +9,21 @@ alias ls="ls --color --group-directories-first"
 alias nf="clear && neofetch"
 alias dmenu_run="dmenu_run -fn 'Terminus-8'"
 alias nv="nvim"
-alias upd="yay -Syu && sigdwmblocks 3"
+alias upd="paru -Syu && pkill -RTMIN+1 dwmblocks"
 alias fcast="curl \"https://wttr.in/Perth\""
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias ytd="youtube-dl"
 alias ytdf="ytd -F"
+alias mpv="mpv --profile=std"
 
 # Directory aliases
-alias ccf="cd $HOME/.config"
-alias csc="cd $HOME/.scripts"
+alias cfg="cd $HOME/.config"
+alias scr="cd $HOME/.scripts"
+alias dls="cd $HOME/dls"
+alias docs="cd $HOME/docs"
+alias games="cd $HOME/games"
+alias pics="cd $HOME/pics"
+alias prog="cd $HOME/prog"
+alias vids="cd $HOME/vids"
+

@@ -3,7 +3,7 @@
 # clock - outputs the current date and time in "DAY, MM DD YYYY | HH:MM:SS" format.
 
 DATE=$(date "+%a, %b %d %Y")
-TIME=$(date "+%T")
+TIME=$(date "+%R")
 
 printf "📆 %s 🕘 %s\n" "$DATE" "$TIME"
 

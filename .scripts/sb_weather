@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # weather - updates the current weather information.
-# For use with slstatus hopefully.
+# For use with dwmblocks.
 
-printf "%b\n" "$(cat $HOME/.cache/weather)"
+printf "%b\n" "$(curl -s --retry 5 --max-time 5 --retry-delay 4 --retry-max-time 40 "wttr.in/Perth?format=1")"
 
 ### END OF FILE

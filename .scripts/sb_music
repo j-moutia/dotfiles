@@ -6,6 +6,6 @@ mpc status |
 sed "/^volume:/d" |
 tac |
 sed -e "s/\\[paused\\].*/⏸️ /g;s/\\[playing\\].*/🎵 /g" |
-tr -d '\n'
+tr -d '\n' && printf "\n"
 
 ### END OF FILE
