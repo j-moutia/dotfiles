@@ -4,6 +4,7 @@
 
 ## Path
 export PATH="$(du $HOME/.scripts | cut -f2 | tr '\n' ':' )$HOME/.cargo/bin:$PATH"
+export LD_LIBRARY_PATH="/lib:/usr/lib:/usr/local/lib:$LD_LIBRARY_PATH"
 
 ## Default programs
 export EDITOR="nvim"

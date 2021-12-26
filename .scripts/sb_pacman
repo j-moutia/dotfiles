@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Prints the number of pending updates to the terminal or statusbar
+
+printf "%b\n" "$(cat $HOME/.cache/pacman_upg)"
+
+### END OF FILE

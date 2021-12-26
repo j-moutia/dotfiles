@@ -5,6 +5,6 @@
 # Example:
 #	./dm_prompt "Do you want to shutdown?" "shutdown -h now"
 
-[ "$(printf "No\\nYes" | dmenu -i -p "$1" -fn "Hack Nerd Font-7.5" -nb darkred -sb red -sf white -nf gray )" = "Yes" ] && $2
+[ "$(printf "No\\nYes" | dmenu -i -p "$1" -fn "Hack Nerd Font-7" -nb darkred -sb red -sf white -nf gray )" = "Yes" ] && $2
 
 ### END OF FILE

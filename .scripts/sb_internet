@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# internet - displays internet status. If connected to wifi, displays connection strength
+
+# Set the wifi icon and percentage depending on the interface's status
+case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
+    down)   WIFI_ICON="📡 " ;;
+    up)     WIFI_ICON="$(awk '/^\s*w/ {print "📶", int($3 * 100 / 70) "% "}' /proc/net/wireless)" ;;
+esac
+
+printf "%s%s\n" "$WIFI_ICON" "$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate)"
+
+### END OF FILE

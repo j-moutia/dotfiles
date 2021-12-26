@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# This script will play a valid video link in mpv with no video. Otherwise, the link will be opened
+# in the $BROWSER.
+
+# If NO link is given, open the browser
+[ -z "$1" ] && { "$BROWSER"; exit; }
+
+case "$1" in
+    *youtube.com/watch*|*youtube.com/playlist*|*youtu.be*|*hooktube.com*|*bitchute.com*)
+        mpv --quiet "$1" --no-video ;;
+    *)
+        if [ -f "$1" ]; then "$TERMINAL" -e "$EDITOR" "$1"
+        else setsid -f "$BROWSER" "$1" >/dev/null 2>&1;
+        fi;;
+esac
+
+### END OF FILE

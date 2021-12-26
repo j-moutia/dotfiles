@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# prop_inf - get X window information to set dwm rules with.
+
+xprop | awk '/^WM_CLASS/{sub(/.* =/, "instance:"); sub(/,/, "\nclass:"); print} /^WM_NAME/{sub(/.* =/, "title:"); print}'
+
+### END OF FILE

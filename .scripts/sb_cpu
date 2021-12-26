@@ -1,0 +1,50 @@
+#!/bin/sh
+
+# cpu - displays current CPU utilization as an average percentage across all cores.
+
+# Get the sleep duration. Default is 3 seconds
+if [ $# -eq 0 ]; then
+    SLEEP_SEC=3
+else
+    SLEEP_SEC=$1
+fi
+
+# Get first data point
+CPU_PREV=$(head -n1 /proc/stat)
+
+# Sleep
+sleep $SLEEP_SEC
+
+# Get second data point
+CPU_NOW=$(head -n1 /proc/stat)
+
+# Remove the first column from the data ("cpu" column)
+PREV_SUM=$(echo $CPU_PREV | cut -d" " -f1 --complement)
+NOW_SUM=$(echo $CPU_NOW | cut -d" " -f1 --complement)
+
+# Replace the column separator (space) with "+"
+PREV_SUM=$((${PREV_SUM// /+}))
+NOW_SUM=$((${NOW_SUM// /+}))
+
+# Get the delta between the two data points
+DELTA=$((NOW_SUM - PREV_SUM))
+
+# Get the idle time delta
+NOW_IDLE=$(echo "$CPU_NOW" | awk -F " " '{print $5}')
+PREV_IDLE=$(echo "$CPU_PREV" | awk -F " " '{print $5}')
+
+IDLE=$((NOW_IDLE - PREV_IDLE))
+
+# Get working time
+WORK=$((DELTA - IDLE))
+
+# Calculate usage percentage
+PERC=$((100 * WORK / DELTA))
+
+# Get CPU temperature
+TEMP=$(sensors | awk '/Core 0/ {print "🌡️ " $3}')
+
+# Output final result
+printf "💻%3s%% | %s\n" "$PERC" "$TEMP"
+
+### END OF FILE

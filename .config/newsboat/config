@@ -1,6 +1,7 @@
 ## OPTIONS ##
 #show-read-feeds no
 auto-reload yes
+reload-threads 10
 
 ## KEY BINDINGS ##
 bind-key j down
