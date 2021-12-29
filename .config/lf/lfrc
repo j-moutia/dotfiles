@@ -1,0 +1,55 @@
+# lfrc - Configuration settings for the lf file manager
+
+## Basic settings ##
+set shell zsh
+set shellopts '-eu'
+set icons
+set preview true
+
+set ifs "\n"
+
+# Set previewer script
+set previewer ~/.config/lf/pv
+
+# Make ~/.trash directory
+$mkdir -p ~/.trash
+
+## Custom functions ##
+
+# Move selected files to the .trash folder
+cmd trash $mv $fx ~/.trash
+
+# Open selected file with application determined by its mime-type
+cmd open ${{
+	case $( file --mime-type "$f" -bL ) in
+		text/*) $EDITOR "$fx";;
+		application/pdf) $READER "$fx" &;;
+		application/x-rar) $READER "$fx" &;;
+        image/*) sxiv "$fx" &;;
+        audio/*) mpv --quiet "$fx" >/dev/null 2>&1 &;;
+		*) for f in "$fx"; do xdg-open "$f" > /dev/null 2>/dev/null & done;;
+	esac
+}}
+
+# Mkdir command
+cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+
+# Unzip command
+cmd unzip $unzip "$f"
+
+# Set a background within lf
+cmd setbg $su_setbg "$f"
+
+# Convert .flac files to .mp3 files
+cmd flac-mp3 $flac-mp3
+
+## Custom key bindings ##
+map <enter> open
+map <delete> trash
+map <c-m> push :mkdir<space>
+
+map fm flac-mp3
+map bg setbg
+map uz unzip
+
+### END OF FILE
